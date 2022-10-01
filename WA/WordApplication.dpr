@@ -1,9 +1,5 @@
 program WordApplication;
 
-{$APPTYPE CONSOLE}
-
-{$R *.res}
-
 uses
    ComObj,
    System.Variants,
@@ -17,8 +13,8 @@ var
    today : TDateTime;
 begin
    today := Now;
-   DeleteFile(PChar(GetCurrentDir + '\' + DateToStr(today) + '.doc'));
    try
+      DeleteFile(PChar(GetCurrentDir + '\' + DateToStr(today) + '.doc'));
       WA := CreateOleObject('Word.Application');
       WA.Visible := false;
       WA.Documents.Add();
